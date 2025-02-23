@@ -1,0 +1,295 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: #01000a;
+    color: #ffffff;
+}
+
+/* Header and Titles */
+#app h1, h2, h3 {
+    color: #ffcc00; /* IPL yellow */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Team Selection Screen */
+#team-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#team-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50vh;
+    gap: 20px;
+}
+
+.team-button {
+    width: 30%;
+    height: 90%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.team-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-button:hover {
+    transform: scale(1.05);
+}
+
+/* Waiting Screen */
+#waiting {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#waiting p {
+    font-size: 20px;
+    color: #ffcc00;
+}
+
+/* Auction Screen */
+#auction {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 50px auto;
+    max-width: 1000px;
+}
+
+/* Sidebar Styling */
+.team-sidebar {
+    width: 250px;
+    background: rgba(20, 20, 20, 0.9);
+    padding: 15px;
+    border-right: 2px solid #444;
+    border-radius: 10px;
+    margin-right: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.team-sidebar h3 {
+    text-align: center;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.team-name {
+    cursor: pointer;
+    padding: 8px;
+    margin: 6px 0;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.team-name:hover {
+    background-color: #0056b3;
+}
+
+/* Highlight selected team */
+.team-name.active {
+    background-color: #ff9800;
+    font-weight: bold;
+}
+
+/* Player List */
+#team-players {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#player-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#player-list li {
+    background-color: #e9ecef;
+    padding: 8px;
+    margin: 3px 0;
+    text-align: center;
+    border-radius: 5px;
+    color: #000;
+}
+
+/* Auction Main Section */
+.auction-main {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#auction h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#auction-player {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+#auction-base-price {
+    color: #32cd32; /* Green for base price */
+}
+
+#auction-timer {
+    color: #ff9800;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Bid Input */
+#bid-input {
+    padding: 12px;
+    font-size: 18px;
+    width: 220px;
+    margin-top: 10px;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    color: #ffcc00;
+    background-color: #222;
+}
+
+#bid-button {
+    background-color: #4c4eaf;
+    color: white;
+    font-size: 18px;
+    padding: 12px 24px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#bid-button:hover {
+    background-color: #64388e;
+}
+
+/* Highest Bid & Bid Status */
+#highest-bid, #bid-status {
+    font-size: 1.3em;
+    margin-top: 20px;
+}
+
+/* Timer Section */
+.timer {
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+
+/* Progress Bar */
+.progress-bar {
+    background-color: #444;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    width: 100%;
+    margin: 10px auto;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+.progress {
+    background-color: #ff9800;
+    height: 100%;
+    width: 100%;
+    transition: width 1s linear;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #auction {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #444;
+    }
+
+    .team-name {
+        display: inline-block;
+        width: 30%;
+        margin: 5px;
+    }
+
+    #auction {
+        margin: 20px;
+    }
+
+    #bid-input {
+        width: 90%;
+    }
+}
+/* Player List Styling */
+#player-list {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* No Players Message */
+.no-players {
+    font-style: italic;
+    color: #bbb;
+}
+
+/* Table Styling */
+.player-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.player-table th, .player-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.player-table th {
+    background-color: #004080;
+    color: white;
+}
+
+.player-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.player-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
