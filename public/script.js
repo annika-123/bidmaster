@@ -60,6 +60,10 @@ socket.onmessage = (event) => {
             alert('The auction has ended!');
             break;
 
+        case 'newGameSession':
+            resetGame(); // Reset game for new session
+            break;
+
         default:
             console.warn('Unknown message type:', data.type);
             break;
@@ -183,7 +187,7 @@ document.getElementById('placeBidBtn').addEventListener('click', () => {
 function displayAuctionPlayer(player) {
     document.getElementById('playerName').innerText = player.name;
     document.getElementById('playerBasePrice').innerText = `₹${player.basePrice}`;
-    document.getElementById('categoryName').innerText = player.category;
+    document.getElementById('categoryName').innerText = player.category || 'Unknown';
 }
 
 // Display sold player
@@ -228,4 +232,14 @@ function startCountdown() {
 function updateTimerDisplay(timeLeft) {
     auctionTimer.textContent = timeLeft;
     timerProgress.style.width = `${(timeLeft / auctionDuration) * 100}%`;
+}
+
+// Reset game when a new session starts
+function resetGame() {
+    selectedTeam = null;
+    purchasedPlayers = { MI: [], RCB: [], CSK: [] };
+    document.getElementById('team-selection').style.display = 'block';
+    document.getElementById('player-list').innerHTML = '';
+    updateTeamBudgets({});
+    alert('A new game session has started!');
 }
